@@ -1,5 +1,7 @@
 package org.yourotherleft.websocketdemo.message;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Date;
 
 public class EchoMessage {
@@ -7,7 +9,8 @@ public class EchoMessage {
 	private final String message;
 	private final Date date;
 
-	public EchoMessage(String message, Date date) {
+	@JsonCreator
+	public EchoMessage(@JsonProperty("message") String message, @JsonProperty("date") Date date) {
 		this.message = message;
 		this.date = date;
 	}
